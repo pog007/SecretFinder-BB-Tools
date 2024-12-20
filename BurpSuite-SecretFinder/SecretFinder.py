@@ -1477,13 +1477,13 @@ _regex = {
     "Possible Leak " : r'(?i)[\"\']?twitter[_-]?consumer[_-]?secret[\"\']?[^\\S\r\n]*[=:][^\\S\r\n]*[\"\']?[\w-]+[\"\']?',
     "Possible Leak " : r'(?i)[\"\']?twitter[_-]?consumer[_-]?key[\"\']?[^\\S\r\n]*[=:][^\\S\r\n]*[\"\']?[\w-]+[\"\']?'
 }
-    regex = r"[:|=|\'|\"|\s*|`|´| |,|?=|\]|\|//|/\*}](%%regex%%)[:|=|\'|\"|\s*|`|´| |,|?=|\]|\}|&|//|\*/]"
-    issuename = "SecretFinder: %s"
-    issuelevel = "Information"
-    issuedetail = r"""Potential Secret Find: <b>%%regex%%</b>
+regex = r"[:|=|\'|\"|\s*|`|´| |,|?=|\]|\|//|/\*}](%%regex%%)[:|=|\'|\"|\s*|`|´| |,|?=|\]|\}|&|//|\*/]"
+issuename = "SecretFinder: %s"
+issuelevel = "Information"
+issuedetail = r"""Potential Secret Find: <b>%%regex%%</b>
     <br><br><b>Note:</b> Please note that some of these issues could be false positives, a manual review is recommended."""
 
-    def doActiveScan(self, baseRequestResponse,pa):
+def doActiveScan(self, baseRequestResponse,pa):
         scan_issues = []
         tmp_issues = []
 
@@ -1504,7 +1504,7 @@ _regex = {
         else:
             return None
 
-    def doPassiveScan(self, baseRequestResponse):
+def doPassiveScan(self, baseRequestResponse):
         scan_issues = []
         tmp_issues = []
 
