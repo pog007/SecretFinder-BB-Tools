@@ -1575,6 +1575,7 @@ def parser_file(content,mode=1,more_regex=None,no_dup=1):
             content = content.replace(";",";\r\n").replace(",",",\r\n")
         else:
             content = jsbeautifier.beautify(content)
+    content = re.sub(r'data:image\/[^;]+;base64,[A-Za-z0-9+/=]+', '', content)
     all_items = []
     for regex in _regex.items():
         r = re.compile(regex[1],re.VERBOSE|re.I)
